@@ -1,45 +1,29 @@
-status1=""
-img=""
-
-function preload() {
-    img=loadImage("dog_cat.jpg")
-}
-
+Status=""
+input_text=""
 function setup() {
-    canvas=createCanvas(640 , 420)
-    canvas.center()
-    objectdetector=ml5.objectDetector("cocossd" , modelloaded)
-    document.getElementById("status").innerHTML="status:detecting objects"
+    canvas=createCanvas(300,290)
+    canvas.position(480,250)
+    video=createCapture(VIDEO)
+    video.size(300,290)
+    video.hide()
+}
+function start() {
+    object_detector=ml5.objectDetector("cocossd" , modelloaded) 
+    document.getElementById("status").innerHTML= "Status : Detecting Objects"
+    input_text=document.getElementById("input_id").value
 }
 function modelloaded(){
-    console.log('model is loaded')
-    status1=true
-    objectdetector.detect(img , getresult)
+    console.log("modelloaded")
+    Status=true;
 }
-
-function getresult(error , results) {
-    if(error){
-        console.log(error)
-
+function draw() {
+    image(video ,0,0,300,290)
+    if(Status != ""){
+        dbject_detector.detect(video,gotResult);
+        for(i = 0;i < objects.length;i++){
+            document.gotElementById("Status").innerHTML ="Status : Object Detected";
+            console.log(objects.length);
+            persent=floor
+        }
     }
-    else {
-        console.log(results)
-    }
-}
-function draw (){
-    image(img ,0 , 0 , 640 , 420 )
-    fill("white")
-    stroke("red")
-    textSize(20)
-    text("dog",200,75)
-    noFill()
-    rect(75 , 60 , 300 , 300)
-    strokeWeight(5)
-    fill("Blue")
-    stroke("yellow")
-    textSize(20)
-    text("cat",400,95)
-    noFill()
-    rect(380, 70 , 300 , 300)
-    strokeWeight(5)
 }

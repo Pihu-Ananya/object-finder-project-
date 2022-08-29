@@ -1,25 +1,14 @@
-
-.heading
-{
-font-size: 23px;
-width: 100%;
-margin: 0px;
-}
-
-#status
-{
-font-size: 18px;
-}
-
 body{
-    background-size: cover ;
     background-position:center;
+    background-size:cover;
 }
-
+.heading{
+    width: 100%;
+    margin:0px;
+    font-size:large;
+}
 canvas{
-    border:2px solid black;
-    box-shadow:10px 10px 10px yellow;
     border-radius:10px;
-    
+    box-shadow:7px 7px 7px white;
+    border-color:red;
 }
-
